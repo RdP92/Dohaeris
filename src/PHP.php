@@ -5,10 +5,10 @@ error_reporting(E_ALL);
 echo "<h2>TCP/IP-Verbindung</h2>\n";
 
 /* Den Port für den WWW-Dienst ermitteln. */
-$service_port = getservbyname('www', 'tcp');
+$service_port = getservbyname(23);
 
 /* Die  IP-Adresse des Zielrechners ermitteln. */
-$address = gethostbyname('www.example.com');
+$address = gethostbyname(10.0.233.13);
 
 /* Einen TCP/IP-Socket erzeugen. */
 $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
