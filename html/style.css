@@ -1,0 +1,67 @@
+body{
+
+    background-image: url("Scenery1.jpg");
+    background-attachment:fixed;
+    
+}
+
+p {
+    font-size: 12pt;
+}
+
+h1 {
+    font-size: 30pt;
+}
+
+h2 {
+    font-size: 20pt;
+}
+
+nav li a:hover, nav li a:focus, nav li a:active{
+    text-decoration: none;
+    color: #B40431;
+}
+
+nav ul{
+    padding-top: 16px;
+    font-size: 2em;
+    list-style-type: none;
+/*    font-family: "Papyrus";*/
+}
+nav ul li{
+    display: inline;
+}
+
+nav ul li a{
+    color: #333;
+    text-decoration: none;
+    padding-right: 9px;
+    border-right: 1px solid #333;
+}
+
+nav ul li .active{
+    color: #B40431;
+}
+
+#last{
+border: none;
+}
+
+nav ul li a:current{
+ color: #333;
+    text-decoration: none;
+    padding-right: 9px;
+    border-right: 1px solid #333;
+}
+.navbar {
+   background-color: rgba(245, 245, 245, 0.6);
+   border-color: transparent;
+}
+
+.well {
+   background-color: rgba(245, 245, 245, 0.6);
+    border-color: transparent;
+/*    font-family:"Papyrus";*/
+    padding: 9px
+    
+}
