@@ -4,11 +4,11 @@ error_reporting(E_ALL);
 
 echo "<h2>TCP/IP-Verbindung</h2>\n";
 
-/* Den Port für den WWW-Dienst ermitteln. */
-$service_port = getservbyname(23);
+/* Den Port für telnet. */
+$service_port = "23";
 
-/* Die  IP-Adresse des Zielrechners ermitteln. */
-$address = gethostbyname(10.0.233.13);
+/* Die IP-Adresse . */
+$address = "10.0.233.13";
 
 /* Einen TCP/IP-Socket erzeugen. */
 $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
@@ -23,24 +23,30 @@ $result = socket_connect($socket, $address, $service_port);
 if ($result === false) {
     echo "socket_connect() fehlgeschlagen.\nGrund: ($result) " . socket_strerror(socket_last_error($socket)) . "\n";
 } else {
-    echo "OK.\n";
+    echo "socket is OK.\n";
 }
+  
+echo "matrix config or somthing";
 
-$in = "HEAD / HTTP/1.1\r\n";
-$in .= "Host: www.example.com\r\n";
-$in .= "Connection: Close\r\n\r\n";
+$imput = "r 1 z \r\n";
 $out = '';
 
-echo "HTTP HEAD request senden ...";
-socket_write($socket, $in, strlen($in));
-echo "OK.\n";
-
-echo "Serverantwort lesen:\n\n";
-while ($out = socket_read($socket, 2048)) {
-    echo $out;
+while($resp = socket_read($socket, 1000)) {
+   $out .= $resp;
+   if (strpos($out, "\n") !== false) break;
 }
 
-echo "Socket schließen ...";
+socket_write($socket ,$imput, strlen($imput));
+
+echo "OK.\n";
+echo "Serverantwort lesen:\n\n";
+
+while($resp = socket_read($socket, 1000)) {
+   $out .= $resp;
+   if (strpos($out, "\n") !== false) break;
+}
+echo $out;
+echo "Socket beenden ...";
 socket_close($socket);
 echo "OK.\n\n";
 ?>
