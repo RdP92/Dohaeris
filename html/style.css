@@ -54,14 +54,21 @@ nav ul li a:current{
     border-right: 1px solid #333;
 }
 .navbar {
-   background-color: rgba(245, 245, 245, 0.6);
+  /* background-color: rgba(245, 245, 245, 0.6);*/
    border-color: transparent;
 }
 
 .well {
-   background-color: rgba(245, 245, 245, 0.6);
+   /*background-color: rgba(245, 245, 245, 0.6);*/
     border-color: transparent;
 /*    font-family:"Papyrus";*/
     padding: 9px
     
 }
+
+
+
+
+
+
+
