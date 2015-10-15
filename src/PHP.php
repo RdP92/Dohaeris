@@ -42,7 +42,7 @@
 		$rout = "r";
 		$synchronized ="s";// all immupt to one output
 
-		$config = $rout . $inputfive . $outputB ;
+		$config = $rout . $inputsix . $outputB ;
 		$out = '';
 
 	socket_write($socket ,$config, strlen($config));
@@ -54,8 +54,32 @@
  		$out .= $resp;
 		if (strpos($out, "\n") !== false) break;
 	}
- 	echo $out;
+	
+	verbindungsNachricht();
+	function verbindungsNachricht(){
+		$inputone = " Nvidia PC 1 ";// Nvidia pc 1
+		$inputotwo = " Nvidia PC 2 ";// Nvidia pc 2
+		$inputtree = " Nvidia PC 3 ";// Nvidia pc 3
+		$inputfor = " Nvidia PC 4 ";// Nvidia pc 4
+		$inputfive = " aplle TV NW ";// aplle tv NW
+		$inputsix = " toolBox ";// toolBox
+		$inputseven = " apple TV SW ";// apple tv SW
+		$inputeight = " apple TV SE ";// aplle tv SE
+		$outputA = "Bildschirm NW" ;// NW
+		$outputB = "Bildschirm NE" ;// NE
+		$outputC = "Bildschirm SW" ;// SW
+		$outputD = "Bildschirm SE" ;// SE
+		$outputH = "Controllbildschirm" ;// Controllbildschirm
+		$rout = "verbinde";
+		$synchronized ="verbinde";// all immupt to one output
+
+		$config = $rout . $inputfive . "zu " . $outputB ;
+		$out = '';
+		echo $config;
+	}
+	
 		// echo "Socket beenden ...";
 	socket_close($socket);
  		// echo "OK.\n\n";
 ?>
+#ipconfig
