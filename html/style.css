@@ -1,6 +1,6 @@
 body{
 
-    background-image: url("Scenery1.jpg");
+    background-image: url("opte.jpg");
     background-attachment:fixed;
     
 }
@@ -23,11 +23,14 @@ nav li a:hover, nav li a:focus, nav li a:active{
 }
 
 nav ul{
-    padding-top: 16px;
+    padding-top: 0px;
     font-size: 2em;
     list-style-type: none;
-/*    font-family: "Papyrus";*/
+    font-family: "Exo";
+    background-color: rgba(245, 245, 245, 0.6);
+    border-color: transparent;
 }
+
 nav ul li{
     display: inline;
 }
@@ -36,34 +39,28 @@ nav ul li a{
     color: #333;
     text-decoration: none;
     padding-right: 9px;
-    border-right: 1px solid #333;
 }
 
 nav ul li .active{
     color: #B40431;
 }
 
-#last{
-border: none;
-}
-
 nav ul li a:current{
- color: #333;
+    color: #333;
     text-decoration: none;
     padding-right: 9px;
-    border-right: 1px solid #333;
-}
-.navbar {
-  /* background-color: rgba(245, 245, 245, 0.6);*/
-   border-color: transparent;
 }
 
-.well {
-   /*background-color: rgba(245, 245, 245, 0.6);*/
+.navbar {
+    background-color: rgba(245, 245, 245, 0.6);
     border-color: transparent;
-/*    font-family:"Papyrus";*/
-    padding: 9px
-    
+
+}
+.well {
+    background-color: rgba(245, 245, 245, 0.6);
+    border-color: transparent;
+    font-family:"Exo";
+    padding: 9px    
 }
 
 
