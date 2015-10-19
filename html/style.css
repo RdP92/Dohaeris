@@ -6,7 +6,7 @@ body{
 }
 
 p {
-    font-size: 12pt;
+    font-size: 14pt;
 }
 
 h1 {
@@ -62,8 +62,6 @@ nav ul li a:current{
     font-family:"Exo";
     padding: 9px    
 }
-
-
 
 
 

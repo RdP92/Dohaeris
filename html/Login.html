@@ -15,6 +15,10 @@
       
     <link href="style.css" rel="stylesheet">
 
+    <?php
+    include ("php.php");
+    ?>
+
 	</head>
 	<body>
         <div class="container"> 
@@ -27,6 +31,22 @@
                 </ul>
             </div>
         </nav>
+
+         <div class="well well-lg"> 
+            <h1>Login</h1>
+            <BR>
+            <form method="post">
+                <div style="margin-right:80%" class="form-group">
+                    <label for="exampleInputUsername1">Username</label>
+                    <input type="text" class="form-control" name="username" id="exampleInputUsername1" placeholder="Username">
+                </div>
+                <div style="margin-right:80%" class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+                </div>
+            <button style="margin-right:80%" type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>   
         </div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
