@@ -54,6 +54,16 @@
  		$out .= $resp;
 		if (strpos($out, "\n") !== false) break;
 	}
+	ipconfig();
+	ipconfig();{
+		$config = "#ipconfig";
+		socket_write($socket ,$config, strlen($config));
+		while($resp = socket_read($socket, 1000)) {
+ 		$out .= $resp;
+		if (strpos($out, "\n") !== false) break;
+		echo $out
+	}
+	}
 	
 	verbindungsNachricht();
 	function verbindungsNachricht(){
@@ -77,9 +87,59 @@
 		$out = '';
 		echo $config;
 	}
+	/*switch ($pInput) {
+			case 1:
+				echo "Verbinde Nvidia PC 1 ";
+				break;
+			case 2:
+				echo "Verbinde Nvidia PC 2 ";
+				break;
+			case 3:
+				echo "Verbinde Nvidia PC 3 ";
+				break;
+			case 4:
+				echo "Verbinde Nvidia PC 4 ";
+				break;
+			case 5:
+				echo "Verbinde aplle TV NW ";
+				break;
+			case 6:
+				echo "Verbinde toolbox ";
+				break;
+			case 7:
+				echo "Verbinde apple TV SW ";
+				break;
+			case 8:
+				echo "Verbinde apple TV SE ";
+				break;
+				
+		}
+		*/
+		/*switch ($pOutput){
+			case "a":
+				echo "zu Bildschirm NW";
+				break;
+			case "b":
+				echo "zu Bildschirm NE";
+				break;
+			case "c":
+				echo "zu Bildschirm SW";
+				break;
+			case "d":
+				echo "zu Bildschirm SE" ;
+				break;
+			case "h":
+				echo "zu Controllbildschirm" ;
+				break;	
+		}*/
 	
 		// echo "Socket beenden ...";
 	socket_close($socket);
  		// echo "OK.\n\n";
 ?>
 #ipconfig
+<form>
+
+ <button type="button" class="btn btn-default btn-xxl" onclick="document.location='?type=io&src=1&dst=a'">
+				  <span aria-hidden="true"></span> NW
+</form>
