@@ -6,6 +6,9 @@
     <meta name="description" content="App-Convert; Monitor-Matrix-Tool.">
     <meta name="author" content="NR">
  
+
+	 <script src="sendCommand.js"></script> 
+	 
     <title>MATRIX</title>
     
     <link rel="stylesheet"
@@ -14,13 +17,15 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
       
     <link href="style.css" rel="stylesheet">
-
-    <?php
-    include ("php.php");
-    ?>
+	
+	<link href="sendCommand.js" rel="sendCommandFunction">
+    
 
 	</head>
 	<body>
+	<div class="well well-lg">
+		<center><h1>Dohaeris</h1></center>
+	</div>
         <div class="container"> 
         <nav class="navbar navbar-inverse">
             <div class="container">
@@ -31,188 +36,83 @@
                 </ul>
             </div>
         </nav>
-
-        <div class="well well-lg"> 
-            <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Dropdown
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</div>
-
-            <div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Action <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</div>
-
-            <div class="btn-group">
-
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin:10%">
-                Nividia PC1 <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                <li role="separator" class="divider"></li>
-                <li><a href="Login.html">Bildschirm NW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B2">Bildschirm NE</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B3">Bildschirm SW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B4">Bildschirm SE</a></li>
-                </ul>
-            </div>
-            <div class="btn-group">
-
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin:10%">
-                Nividia PC2 <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                <li role="separator" class="divider"></li>
-                <li><a href="B1">Bildschirm NW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B2">Bildschirm NE</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B3">Bildschirm SW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B4">Bildschirm SE</a></li>
-                </ul>
-            </div>
-                
-            <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin:10%">
-                Nividia PC3 <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                <li role="separator" class="divider"></li>
-                <li><a href="B1">Bildschirm NW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B2">Bildschirm NE</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B3">Bildschirm SW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B4">Bildschirm SE</a></li>
-                </ul>
-            </div>
-            <div class="btn-group">
-
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin:10%">
-                Nividia PC4 <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                <li role="separator" class="divider"></li>
-                <li><a href="B1">Bildschirm NW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B2">Bildschirm NE</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B3">Bildschirm SW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B4">Bildschirm SE</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="well well-lg">
-            <div class="btn-group">
-
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin:10%">
-                apple tv NW <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                <li role="separator" class="divider"></li>
-                <li><a href="B1">Bildschirm NW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B2">Bildschirm NE</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B3">Bildschirm SW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B4">Bildschirm SE</a></li>
-                </ul>
-            </div>
-            <div class="btn-group">
-
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin:10%">
-                apple tv NE <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                <li role="separator" class="divider"></li>
-                <li><a href="B1">Bildschirm NW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B2">Bildschirm NE</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B3">Bildschirm SW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B4">Bildschirm SE</a></li>
-                </ul>
-            </div>
-            <div class="btn-group">
-
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin:10%">
-                apple tv SW <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                <li role="separator" class="divider"></li>
-                <li><a href="B1">Bi ldschirm NW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B2">Bildschirm NE</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B3">Bildschirm SW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B4">Bildschirm SE</a></li>
-                </ul>
-            </div>
-            <div class="btn-group">
-
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin:10%">
-                apple tv SE <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                <li role="separator" class="divider"></li>
-                <li><a href="B1">Bildschirm NW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B2">Bildschirm NE</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B3">Bildschirm SW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B4">Bildschirm SE</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="well well-lg">
-            <div class="btn-group">
-
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin:10%">
-                ClickShare <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                <li role="separator" class="divider"></li>
-                <li><a href="B1">Bildschirm NW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B2">Bildschirm NE</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B3">Bildschirm SW</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="B4">Bildschirm SE</a></li>
-                </ul>
-            </div>
-        </div>
-        </div>
+		
+		<div class="well well-lg"> <!--Presets-->
+				<p> Presets</p>
+			<select id="avaiblePreset" onchange="sendCommand('preset', $( '#avaiblePreset' ).val())">	
+				<option value="1">Apple TV</option>
+				<option value="4">PC Full-screen</option>
+				<option value="3">Click-Share</option>
+			</select>
+			
+		</div>
+		<div class="well well-lg"> <!--Toolbox-->
+				<p> Toolbox</p>
+			<select id="sourceSelect"onchange="sendCommand('tool', $( '#sourceSelect' ).val(), '')">
+				<option value="1"> Apple TV NE</option>
+				<option value="2"> Click-Share</option>
+			</select>
+		</div>	
+		<div class="well well-lg"> <!--NW-->
+				<p> Bildschrim NW</p>
+			<select id="sourceSelect"onchange="sendCommand('io', $( '#sourceSelect' ).val(),'a')">
+				<option value="1"> Nvidia PC NW</option>
+				<option value="2"> Nvidia PC NE</option>
+				<option value="3"> Nvidia PC SW</option>
+				<option value="4"> Nvidia PC SE</option>
+				<option value="5"> Apple TV NW</option>
+				<option value="6"> toolbox</option>
+				<option value="7"> Apple TV SW</option>
+				<option value="8"> Apple TV SE</option>
+			</select><br>
+		</div>
+		
+		<div class="well well-lg"> <!--NE-->           
+				<p> Bildschrim NE</p> 
+			<select id="sourceSelect"onchange="sendCommand('io', $( '#sourceSelect' ).val(),'b')">
+				<option value="1"> Nvidia PC NW</option>
+				<option value="2"> Nvidia PC NE</option>
+				<option value="3"> Nvidia PC SW</option>
+				<option value="4"> Nvidia PC SE</option>
+				<option value="5"> Apple TV NW</option>
+				<option value="6"> toolbox</option>
+				<option value="7"> Apple TV SW</option>
+				<option value="8"> Apple TV SE</option>
+			
+			</select><br>
+		</div>
+		
+		<div class="well well-lg"> <!--SW-->
+				<p> Bildschrim SW</p>           
+			<select id="sourceSelect"onchange="sendCommand('io', $( '#sourceSelect' ).val(),'c')">
+		 
+				<option value="1"> Nvidia PC NW</option>
+				<option value="2"> Nvidia PC NE</option>
+				<option value="3"> Nvidia PC SW</option>
+				<option value="4"> Nvidia PC SE</option>
+				<option value="5"> Apple TV NW</option>
+				<option value="6"> toolbox</option>
+				<option value="7"> Apple TV SW</option>
+				<option value="8"> Apple TV SE</option>
+			
+			</select><br>
+		</div>
+		
+		<div class="well well-lg"> <!--SE-->
+				<p> Bildschrim SE</p>        
+			<select id="sourceSelect"onchange="sendCommand('io', $( '#sourceSelect' ).val(),'d')">
+				<option value="1"> Nvidia PC NW</option>
+				<option value="2"> Nvidia PC NE</option>
+				<option value="3"> Nvidia PC SW</option>
+				<option value="4"> Nvidia PC SE</option>
+				<option value="5"> Apple TV NW</option>
+				<option value="6"> toolbox</option>
+				<option value="7"> Apple TV SW</option>
+				<option value="8"> Apple TV SE</option>
+				
+			</select><br>
+		</div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     </body>
-
 </html>
