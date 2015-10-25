@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="App-Convert; Monitor-Matrix-Tool.">
     <meta name="author" content="NR">
- 
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="apple-touch-startup-image" href="opte.jpg">
 
 	 <script src="sendCommand.js"></script> 
 	 
@@ -39,23 +40,19 @@
 		
 		<div class="well well-lg"> <!--Presets-->
 				<p> Presets</p>
-			<select id="avaiblePreset" onchange="sendCommand('preset', $( '#avaiblePreset' ).val())">	
+			<select id="availablePreset">
+				<option value="">Please select...</option>
 				<option value="1">Apple TV</option>
 				<option value="4">PC Full-screen</option>
 				<option value="3">Click-Share</option>
 			</select>
 			
 		</div>
-		<div class="well well-lg"> <!--Toolbox-->
-				<p> Toolbox</p>
-			<select id="sourceSelect"onchange="sendCommand('tool', $( '#sourceSelect' ).val(), '')">
-				<option value="1"> Apple TV NE</option>
-				<option value="2"> Click-Share</option>
-			</select>
-		</div>	
+	
 		<div class="well well-lg"> <!--NW-->
 				<p> Bildschrim NW</p>
-			<select id="sourceSelect"onchange="sendCommand('io', $( '#sourceSelect' ).val(),'a')">
+			<select id="sourceSelectNW">
+				<option value="">Please select...</option>
 				<option value="1"> Nvidia PC NW</option>
 				<option value="2"> Nvidia PC NE</option>
 				<option value="3"> Nvidia PC SW</option>
@@ -69,7 +66,8 @@
 		
 		<div class="well well-lg"> <!--NE-->           
 				<p> Bildschrim NE</p> 
-			<select id="sourceSelect"onchange="sendCommand('io', $( '#sourceSelect' ).val(),'b')">
+			<select id="sourceSelectNE">
+				<option value="">Please select...</option>
 				<option value="1"> Nvidia PC NW</option>
 				<option value="2"> Nvidia PC NE</option>
 				<option value="3"> Nvidia PC SW</option>
@@ -84,7 +82,8 @@
 		
 		<div class="well well-lg"> <!--SW-->
 				<p> Bildschrim SW</p>           
-			<select id="sourceSelect"onchange="sendCommand('io', $( '#sourceSelect' ).val(),'c')">
+			<select id="sourceSelectSW">
+				<option value="">Please select...</option>
 		 
 				<option value="1"> Nvidia PC NW</option>
 				<option value="2"> Nvidia PC NE</option>
@@ -100,7 +99,8 @@
 		
 		<div class="well well-lg"> <!--SE-->
 				<p> Bildschrim SE</p>        
-			<select id="sourceSelect"onchange="sendCommand('io', $( '#sourceSelect' ).val(),'d')">
+			<select id="sourceSelectSE">
+				<option value="">Please select...</option>
 				<option value="1"> Nvidia PC NW</option>
 				<option value="2"> Nvidia PC NE</option>
 				<option value="3"> Nvidia PC SW</option>
@@ -112,7 +112,62 @@
 				
 			</select><br>
 		</div>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			var presetSelect = document.getElementById("availablePreset");
+			var sourceSelectNW = document.getElementById("sourceSelectNW");
+			var sourceSelectNE = document.getElementById("sourceSelectNE");
+			var sourceSelectSW = document.getElementById("sourceSelectSW");
+			var sourceSelectSE = document.getElementById("sourceSelectSE");
+			
+			presetSelect.onchange = function() {
+				var value = presetSelect.options[presetSelect.selectedIndex].value;
+				if (value != "") {
+					sendCommand('preset', value);
+					sourceSelectNW.value = "";
+					sourceSelectNE.value = "";
+					sourceSelectSW.value = "";
+					sourceSelectSE.value = "";
+					console.log('preset: ' + value);
+				}
+			};
+			
+			sourceSelectNW.onchange = function() {
+				var value = sourceSelectNW.options[sourceSelectNW.selectedIndex].value;
+				if (value != "") {
+					sendCommand('io', value, 'a');
+					presetSelect.value = "";
+					console.log('io: ' + value + ' - a');
+				}
+			};
+			
+			sourceSelectNE.onchange = function() {
+				var value = sourceSelectNE.options[sourceSelectNE.selectedIndex].value;
+				if (value != "") {
+					sendCommand('io', value, 'b');
+					presetSelect.value = "";
+					console.log('io: ' + value + ' - b');
+				}
+			};
+			
+			sourceSelectSW.onchange = function() {
+				var value = sourceSelectSW.options[sourceSelectSW.selectedIndex].value;
+				if (value != "") {
+					sendCommand('io', value, 'c');
+					presetSelect.value = "";
+					console.log('io: ' + value + ' - c');
+				}
+			};
+			
+			sourceSelectSE.onchange = function() {
+				var value = sourceSelectSE.options[sourceSelectSE.selectedIndex].value;
+				if (value != "") {
+					sendCommand('io', value, 'd');
+					presetSelect.value = "";
+					console.log('io: ' + value + ' - d');
+				}
+			};
+		</script>
     </body>
 </html>
