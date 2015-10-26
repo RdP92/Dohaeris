@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="App-Convert; Monitor-Matrix-Tool.">
     <meta name="author" content="NR">
- 
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="apple-touch-startup-image" href="opte.jpg">
+
+	 <script src="sendCommand.js"></script> 
+	 
     <title>MATRIX</title>
     
     <link rel="stylesheet"
@@ -14,35 +18,165 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
       
     <link href="style.css" rel="stylesheet">
-
-    <?php
-    include ("php.php");
-    ?>
+	
+	<link href="sendCommand.js" rel="sendCommandFunction">
+    
 
 	</head>
 	<body>
-		<div class="container"> 
-		<nav class="navbar navbar-inverse">
-			<div class="container">
-				<ul class="nav nav-tabs nav-justified">
- 				    <li class="active"><a href="index.html">Home</a></li>
- 				    <li><a href="Monitor.html">Monitors</a></li>
-    				<li><a href="Login.html">Login</a></li>
-  				</ul>
-			</div>
-		</nav>
-	
+    <div class="container"> 
 		<div class="well well-lg">
-			<h1>Matrix Dohaeris</h1>
-			<BR>
-			<p>Connect via Matrix to 4 Monitors.</p>
+			<center><h1>Dohaeris</h1></center>
+		</div>
+		
+		<div class="well well-lg"> <!--Presets-->
+				<center><p> Presets</p>
+			<select id="availablePreset">
+				<option value="">Please select...</option>
+				<option value="1">Apple TV</option>
+				<option value="4">PC Full-screen</option>
+				<option value="3">Click-Share</option>
+			</select></center><br>
+			
 		</div>
 
-
+		<div class="well well-lg"> <!--NW-->
+			<center>
+				<table>
+					<tr>
+						<td style="padding: 25px">
+							<div class="well well-lg">
+								<p> Bildschrim NW</p>
+								<select id="sourceSelectNW">
+									<option value="">Please select...</option>
+									<option value="1"> Nvidia PC NW</option>
+									<option value="2"> Nvidia PC NE</option>
+									<option value="3"> Nvidia PC SW</option>
+									<option value="4"> Nvidia PC SE</option>
+									<option value="5"> Apple TV NW</option>
+									<option value="6"> Apple TV NE</option>
+									<option value="7"> Apple TV SW</option>
+									<option value="8"> Apple TV SE</option>
+									<option value="9"> Click-Share</option>
+								</select>
+							</div>
+						</td>
+						<td style="padding: 25px">
+							<div class="well well-lg">
+							<p> Bildschrim NE</p> 
+							<select id="sourceSelectNE">
+								<option value="">Please select...</option>
+								<option value="1"> Nvidia PC NW</option>
+								<option value="2"> Nvidia PC NE</option>
+								<option value="3"> Nvidia PC SW</option>
+								<option value="4"> Nvidia PC SE</option>
+								<option value="5"> Apple TV NW</option>
+								<option value="6"> Apple TV NE</option>
+								<option value="7"> Apple TV SW</option>
+								<option value="8"> Apple TV SE</option>
+								<option value="9"> Click-Share</option>
+							</select>
+						</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding: 25px">
+							<div class="well well-lg">
+							<p> Bildschrim SW</p> 
+							<select id="sourceSelectSW">
+								<option value="">Please select...</option>
+								<option value="1"> Nvidia PC NW</option>
+								<option value="2"> Nvidia PC NE</option>
+								<option value="3"> Nvidia PC SW</option>
+								<option value="4"> Nvidia PC SE</option>
+								<option value="5"> Apple TV NW</option>
+								<option value="6"> Apple TV NE</option>
+								<option value="7"> Apple TV SW</option>
+								<option value="8"> Apple TV SE</option>
+								<option value="9"> Click-Share</option>
+							</select>
+						</div>
+						</td>
+						<td style="padding: 25px">
+							<div class="well well-lg">
+							<p> Bildschrim SE</p> 
+							<select id="sourceSelectSE">
+								<option value="">Please select...</option>
+								<option value="1"> Nvidia PC NW</option>
+								<option value="2"> Nvidia PC NE</option>
+								<option value="3"> Nvidia PC SW</option>
+								<option value="4"> Nvidia PC SE</option>
+								<option value="5"> Apple TV NW</option>
+								<option value="6"> Apple TV NE</option>
+								<option value="7"> Apple TV SW</option>
+								<option value="8"> Apple TV SE</option>
+								<option value="9"> Click-Share</option>
+							</select>
+						</div>
+						</td>
+					</tr>
+				</table>
+			</center>
 		</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-	</body>
-
+	</div>
+		
+		
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			var presetSelect = document.getElementById("availablePreset");
+			var sourceSelectNW = document.getElementById("sourceSelectNW");
+			var sourceSelectNE = document.getElementById("sourceSelectNE");
+			var sourceSelectSW = document.getElementById("sourceSelectSW");
+			var sourceSelectSE = document.getElementById("sourceSelectSE");
+			
+			presetSelect.onchange = function() {
+				var value = presetSelect.options[presetSelect.selectedIndex].value;
+				if (value != "") {
+					sendCommand('preset', value);
+					sourceSelectNW.value = "";
+					sourceSelectNE.value = "";
+					sourceSelectSW.value = "";
+					sourceSelectSE.value = "";
+					console.log('preset: ' + value);
+				}
+			};
+			
+			sourceSelectNW.onchange = function() {
+				var value = sourceSelectNW.options[sourceSelectNW.selectedIndex].value;
+				if (value != "") {
+					sendCommand('io', value, 'a');
+					presetSelect.value = "";
+					console.log('io: ' + value + ' - a');
+				}
+			};
+			
+			sourceSelectNE.onchange = function() {
+				var value = sourceSelectNE.options[sourceSelectNE.selectedIndex].value;
+				if (value != "") {
+					sendCommand('io', value, 'b');
+					presetSelect.value = "";
+					console.log('io: ' + value + ' - b');
+				}
+			};
+			
+			sourceSelectSW.onchange = function() {
+				var value = sourceSelectSW.options[sourceSelectSW.selectedIndex].value;
+				if (value != "") {
+					sendCommand('io', value, 'c');
+					presetSelect.value = "";
+					console.log('io: ' + value + ' - c');
+				}
+			};
+			
+			sourceSelectSE.onchange = function() {
+				var value = sourceSelectSE.options[sourceSelectSE.selectedIndex].value;
+				if (value != "") {
+					sendCommand('io', value, 'd');
+					presetSelect.value = "";
+					console.log('io: ' + value + ' - d');
+				}
+			};
+		</script>
+    </body>
 </html>

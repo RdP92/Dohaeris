@@ -6,69 +6,23 @@ body{
 }
 
 p {
-    font-size: 14pt;
+    font-size: 18pt;
 }
 
 h1 {
-    font-size: 30pt;
+    font-size: 32pt;
 }
 
 h2 {
-    font-size: 20pt;
+    font-size: 24pt;
 }
 
-nav li a:hover, nav li a:focus, nav li a:active{
-    text-decoration: none;
-    color: #B40431;
-}
 
-nav ul{
-    padding-top: 0px;
-    font-size: 2em;
-    list-style-type: none;
-    font-family: "Exo";
-    background-color: rgba(245, 245, 245, 0.6);
-    border-color: transparent;
-}
-
-nav ul li{
-    display: inline;
-}
-
-nav ul li a{
-    color: #333;
-    text-decoration: none;
-    padding-right: 9px;
-}
-
-nav ul li .active{
-    color: #B40431;
-}
-
-nav ul li a:current{
-    color: #333;
-    text-decoration: none;
-    padding-right: 9px;
-}
-
-.navbar {
-    background-color: rgba(245, 245, 245, 0.6);
-    border-color: transparent;
-
-}
 .well {
     background-color: rgba(245, 245, 245, 0.6);
     border-color: transparent;
     font-family:"Exo";
-    padding: 9px    
-}
-
-.dropdown {
-    position: relative;
-}
-
-.open {
-    
+    padding: 9px; 
 }
 
 
