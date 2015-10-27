@@ -1,0 +1,34 @@
+body{
+
+    background-image: url("opte.jpg");
+    background-attachment:fixed;
+    
+}
+
+p {
+    font-size: 18pt;
+}
+
+h1 {
+    font-size: 32pt;
+}
+
+h2 {
+    font-size: 24pt;
+}
+
+
+.well {
+    background-color: rgba(245, 245, 245, 0.6);
+    border-color: transparent;
+    font-family:"Exo";
+    padding: 9px; 
+}
+.table-responsive {
+	border-color: transparent;
+}
+
+
+
+
+

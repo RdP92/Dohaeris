@@ -56,8 +56,8 @@ class Commander {
 		if(!$this->connected)
 			return false;
 	
-		$possibleInputValue = array(1, 2, 3, 4, 5, 6, 7, 8); 
-		$possibleOutputValue = array('a', 'b', 'c', 'd', 'h');
+		$possibleInputValue = array(1, 2, 3, 4, 5, 6, 7, 8, 9); 
+		$possibleOutputValue = array('a', 'b', 'c', 'd', 'h', null);
 		
 		if( !in_array($pInput, $possibleInputValue) )
 				return false;
@@ -65,7 +65,30 @@ class Commander {
 		if( !in_array($pOutput, $possibleOutputValue) )
 				return false;
 
-		$command = "r ".$pInput." ".pOutput."\r\n";
+		if( is_null( $pOutput ) )
+			$command = "r ".$pInput."\r\n";
+		else
+			$command = "r ".$pInput." ".$pOutput."\r\n";
+		
+		socket_write($this->socket ,$command, strlen($command));
+		
+		while($resp = socket_read($this->socket, 1000)) {
+		   if (strpos($resp, "\n") !== false) break;
+		}
+		
+	}
+	
+	function routeTool( $pInput ){
+		if(!$this->connected)
+			return false;
+	
+		$possibleInputValue = array(1, 2); 
+		
+		if( !in_array($pInput, $possibleInputValue) )
+				return false;
+		
+
+		$command = "r ".$pInput."\r\n";
 		
 		socket_write($this->socket ,$command, strlen($command));
 		
@@ -85,6 +108,7 @@ class Commander {
 		   if (strpos($resp, "\n") !== false) break;
 		}
 	}
+	
 	function inputcomand( $pInputComand ){
 		if(!$this->connected)
 			return false;
@@ -99,5 +123,56 @@ class Commander {
 
 
 	}
-} 
+
+}
+function feedBack($pInput){
+	switch ($pInput) {
+			case 1:
+				echo "Verbinde Nvidia PC 1 ";
+				break;
+			case 2:
+				echo "Verbinde Nvidia PC 2 ";
+				break;
+			case 3:
+				echo "Verbinde Nvidia PC 3 ";
+				break;
+			case 4:
+				echo "Verbinde Nvidia PC 4 ";
+				break;
+			case 5:
+				echo "Verbinde Apple TV NW ";
+				break;
+			case 6:
+				echo "Verbinde Apple TV ";
+				break;
+			case 7:
+				echo "Verbinde Apple TV SW ";
+				break;
+			case 8:
+				echo "Verbinde Apple TV SE ";
+				break;
+			case 9:
+				echo "Verbinde Click-Share ";
+				break;
+				
+		}
+		
+		switch ($pOutput){
+			case "a":
+				echo "zu Bildschirm NW";
+				break;
+			case "b":
+				echo "zu Bildschirm NE";
+				break;
+			case "c":
+				echo "zu Bildschirm SW";
+				break;
+			case "d":
+				echo "zu Bildschirm SE" ;
+				break;
+			case "h":
+				echo "zu Controllbildschirm" ;
+				break;	
+	}	
+	} 
 ?>
